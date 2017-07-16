@@ -1,0 +1,113 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:context="http://www.springframework.org/schema/context"
+ xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+
+  <bean id="person" class="com.acadgild.Person">
+    <property name="name" value="Ram" />
+    <property name="type" value="admin" />
+   </bean>
+ 
+	<bean id="applicationContextProvder" class="com.acadgild.AppContext" />
+
+	<bean id="helloBean" class="com.acadgild.HelloWorld">
+		<property name="name" value="HelloWorld" />
+	</bean>
+
+
+    <bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+      <property name="customEditors">
+       <map>
+         <entry key="com.acadgild.PersonType" value="com.acadgild.PersonTypeEditor"/>
+       </map>
+      </property>
+    </bean>
+       
+
+	<bean id="employee" class="com.acadgild.Employee">
+		<property name="id">
+			<value>1</value>
+		</property>
+		<property name="name">
+			<value>Ashish</value>
+		</property>
+		<property name="city">
+			<value>Bangalore</value>
+		</property>
+
+	</bean>
+
+
+	<bean id="employee2" class="com.acadgild.Employee2">
+		<constructor-arg value="1" type="int"></constructor-arg>
+	    <constructor-arg value="Ashish" ></constructor-arg>
+	</bean>
+	
+	
+ <bean id="myBean1" class="com.acadgild.MyBean">
+        <property name="dep">
+            <ref local="myDependency1"/>
+        </property>
+    </bean>
+    
+    <bean id="myBean2" class="com.acadgild.MyBean">
+        <property name="dep">
+            <ref local="myDependency2"/>
+        </property>
+    </bean>
+    
+    <bean id="myDependencyTarget" class="com.acadgild.MyDependency"/>
+    
+    <bean id="myDependency1" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target">
+            <ref local="myDependencyTarget"/>
+        </property>
+        <property name="interceptorNames">
+            <list>
+                <value>advice</value>
+            </list>
+        </property>
+    </bean>
+    
+    <bean id="myDependency2" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target">
+            <ref local="myDependencyTarget"/>
+        </property>
+        <property name="interceptorNames">
+            <list>
+                <value>advisor</value>
+            </list>
+        </property>
+    </bean>
+    
+    <bean id="advice" class="com.acadgild.MyAdvice"/>
+    
+    <bean id="advisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+        <property name="advice">
+            <ref local="advice"/>
+        </property>
+        <property name="pointcut">
+            <bean class="org.springframework.aop.support.JdkRegexpMethodPointcut">
+                <property name="pattern">
+                    <value>.*foo.*</value>
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+ <bean id="dataSource" 
+      class = "org.springframework.jdbc.datasource.DriverManagerDataSource">
+      <property name = "driverClassName" value = "com.mysql.jdbc.Driver"/>
+      <property name = "url" value = "jdbc:mysql://localhost:3306/TEST"/>
+      <property name = "username" value = "root"/>
+      <property name = "password" value = "ganesha2108"/>
+   </bean>
+
+   <!-- Definition for studentJDBCTemplate bean -->
+   <bean id = "studentJDBCTemplate" 
+      class = "com.acadgild.StudentJDBCTemplate">
+      <property name = "dataSource" ref = "dataSource" />    
+   </bean>
+ 
+
+</beans>
