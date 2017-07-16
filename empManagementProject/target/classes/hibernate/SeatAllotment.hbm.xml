@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.acadgild.Entity.SeatAllotment" table="SeatAllotment" catalog="employeeManagement">
+        <id name="empId" type="java.lang.Integer">
+            <column name="empId" />
+        </id>
+        <property name="buildingId" type="int">
+            <column name="buildingId"  />
+        </property>
+        
+        <property name="seatNo" type="int">
+            <column name="seatNo"   />
+        </property>
+        
+        <property name="floorNo" type="int">
+            <column name="FloorNo"   />
+        </property>
+        
+        <property name="seatStatus" type="string">
+            <column name="seatStatus"   />
+        </property>
+        
+         <property name="requestedByUser" type="string">
+            <column name="RequestedByUser"   />
+        </property>
+        
+        <property name="AdminStatusUpdate" type="string">
+            <column name="AdminStatusUpdate"   />
+        </property>
+        
+        
+        <property name="waitingForAdminApproval" type="string">
+            <column name="WaitingForAdminApproval"   />
+        </property>
+        
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,44 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<context:component-scan base-package="com.acadgild.Controller" />
+
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix">
+			<value>/WEB-INF/views/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
+	</bean>
+	
+	
+	<bean id = "employee" class = "com.acadgild.Entity.Employee" >
+   </bean>
+   
+   <bean id = "building" class = "com.acadgild.Entity.Building" >
+   </bean>
+   
+   <bean id = "seatAllotment" class = "com.acadgild.Entity.SeatAllotment" >
+   </bean>
+   
+   <bean id = "employeeDao" class = "com.acadgild.DAO.EmployeeDAO" >
+   </bean>
+   
+   <bean id = "buildingDao" class = "com.acadgild.DAO.BuildingDAO" >
+   </bean>
+   
+   <bean id = "seatAllotmentDao" class = "com.acadgild.DAO.SeatAllotmentDAO" >
+   </bean>
+   
+   
+   
+   
+</beans>

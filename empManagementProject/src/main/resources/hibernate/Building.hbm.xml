@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.acadgild.Entity.Building" table="building" catalog="employeeManagement">
+        <id name="buildingId" type="java.lang.Integer">
+            <column name="BuildingId" />
+            <generator class="identity" />
+        </id>
+        <property name="buildingName" type="string">
+            <column name="BuildingName" length="200"  />
+        </property>
+        <property name="floorNo" type="int">
+            <column name="FloorNo"   />
+        </property>
+        
+    </class>
+</hibernate-mapping>
