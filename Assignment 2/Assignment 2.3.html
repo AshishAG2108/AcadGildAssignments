@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function validateForm()
+{
+ var username = document.myForm.username.value;
+ var firstName = document.myForm.firstname.value;
+ var lastName = document.myForm.lastname.value;
+ var emailId = document.myForm.emailId.value;
+ var mobile = document.myForm.mobile.value;
+ var country = document.myForm.country.value;
+ var city = document.myForm.city.value;
+ var pincode = document.myForm.pincode.value;
+ 
+ if(username=="")
+ {
+   document.myForm.username.style.borderColor = "red"; 
+   alert("username is empty");
+   return false;
+ }
+
+ if(firstName=="")
+ {
+   document.myForm.firstName.style.borderColor = "red"; 
+   alert("firstName is empty");
+   return false;
+ }
+ if(lastName=="")
+ {
+   document.myForm.lastName.style.borderColor = "red"; 
+   alert("lastName is empty");
+   return false;
+ }
+ if(emailId=="")
+ {
+   document.myForm.emailId.style.borderColor = "red"; 
+   alert("emailId is empty");
+   return false;
+ }
+ else
+ {
+   if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailId))  
+  {  
+     alert("improper emailid format");
+   document.myForm.emailId.style.borderColor = "red"; 
+   return false
+  }  
+  
+ }
+ if(mobile=="")
+ {
+   document.myForm.mobile.style.borderColor = "red"; 
+   alert("mobile is empty");
+   return false;
+ }
+ else
+ {
+     var phoneno = /^\d{10}$/; 
+     if(!mobile.match(phoneno))
+	 {
+	  document.myForm.mobile.style.borderColor = "red"; 
+	  return false;
+	 }
+	 
+ }
+ if(country=="")
+ {
+   document.myForm.country.style.borderColor = "red"; 
+   alert("country is empty");
+   return false;
+ }
+ if(city=="")
+ {
+   document.myForm.city.style.borderColor = "red"; 
+   alert("city is empty");
+   return false;
+ }
+ if(pincode=="")
+ {
+   document.myForm.pincode.style.borderColor = "red"; 
+   alert("pincode is empty");
+   return false;
+ }
+ else
+ {
+     var pincd = /^\d{6}$/; 
+     if(!pincode.match(pincd))
+	 {
+	  document.myForm.mobile.style.borderColor = "red"; 
+	  return false;
+	 }
+	 
+ }
+ 
+ var txt;
+    var r = confirm("\nEither Submit or Cancel.\nThe button you pressed will be displayed in the result window.");
+    
+}
+</script>
+</head>
+<body>
+<p id="demo"></p>
+
+
+
+<form name="myForm" onsubmit=" return validateForm()">
+UserName:<input type="text" name="username"><br>
+FirstName:<input type="text" name="firstname"><br>
+LastName:<input type="text" name="lastname"><br>
+Email Id:<input type="text" name="emailId"><br>
+Mobile No:<input type="text" name="mobile"><br>
+Country:<input type="text" name="country"><br>
+City :<input type="text" name="city"><br>
+Pincode:<input type="text" name="pincode"><br>
+Submit <input type="Submit">
+</form>
+
+</body>
+</html>

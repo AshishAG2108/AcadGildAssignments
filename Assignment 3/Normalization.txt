@@ -1,0 +1,80 @@
+Normalization :- 
+
+Normalization means splitting the table into multiple tables such that deleting or updating data from one table would not affect the other table when relationships are made .It is done to reduce redundancy of data .
+
+Different forms of normalization :
+
+1)First normal form (1NF). 
+2)Second normal form (2NF). 
+3)Third normal form (3NF).
+
+1) 1-NF 
+empid,empname,month,sales,bookid,bookname
+E01,A,Jan,1000,B01,SBI
+E01,A,Feb,1200,B01,SBI
+E01,A,Mar,850,B01,SBI
+E02,B,Jan,2200,B02,UTI
+E02,B,Feb,2500,B02,UTI
+E03,C,Jan,1700,B01,SBI
+E03,C,Feb,1800,B01,SBI
+E03,C,Mar,1850,B01,SBI
+E03,C,Apr,1725,B01,SBI
+
+2) 2-NF:- 
+ 
+ Table 1:- 
+ 
+  empid,empname
+  E01,A
+  E02,B
+  E03,C
+  
+  Table 2:- 
+  
+  empid,BookId,Bookname
+  E01,B01,SBI
+  E02,B02,UTI
+  E03,B01,SBI
+  
+  Table 3:-
+  
+  empid,month,sales
+  E01,Jan,1000
+  E01,Feb,1200
+  E01,Mar,850
+  E02,Jan,2200
+  E02,Feb,2500
+  E03,Jan,1700
+  E03,Feb,1800
+  E03,Mar,1850
+  E03,Apr,1725
+  
+  
+  3) 3_NF
+  
+ empid,empname
+  E01,A
+  E02,B
+  E03,C
+  
+  empid,bookid 
+  E01,B01
+  E02,B02
+  E03,B01
+  
+  bookid,bookname
+  B01,SBI
+  B02,UTI
+  
+  empid,month,sales
+  E01,Jan,1000
+  E01,Feb,1200
+  E01,Mar,850
+  E02,Jan,2200
+  E02,Feb,2500
+  E03,Jan,1700
+  E03,Feb,1800
+  E03,Mar,1850
+  E03,Apr,1725
+  
+  

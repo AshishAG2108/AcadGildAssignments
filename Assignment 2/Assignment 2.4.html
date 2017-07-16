@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body onload="bodyFunction()">
+<p id="demo"></p>
+<!-- Problem 1  -->
+<button onclick="onClick()">Click</button>
+First Name: <input type="text" id="fname" onblur="onBlur()">
+<p id="demo"></p>
+
+<img src="sample.jpg" alt="no image" onerror="onError()">
+
+<form onsubmit="formFunction()">
+  Enter name: <input type="text">
+  <input type="submit">
+</form>
+
+<script>
+
+
+function onClick() {
+    document.getElementById("demo").innerHTML = "Hello World";
+}
+function onBlur() {
+    var x = document.getElementById("fname");
+    x.value = x.value.toUpperCase();
+}
+function onError() {
+    alert('The image could not be loaded.');
+}
+function bodyFunction()
+{
+ alert('body loaded');
+}
+function formFunction()
+{
+ alert('Form Submitted');
+}
+</script>
+
+
+
+
+<script>
+
+</script>
+
+</body>
+</html>

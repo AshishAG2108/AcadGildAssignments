@@ -1,0 +1,27 @@
+.heading {
+    text-align: center;
+    border: 3px solid black;
+	font-size: 150%;
+}
+
+.fields{
+    text-align: left;
+    font-weight: bold;
+	font-size: 150%;
+	display:inline-block;
+	margin-right:10px;
+}
+.value{
+    display:inline-block;
+}
+.images{
+   border :3px;
+    max-width: 20%;
+    height: 100px;
+
+}
+.body{
+background-image: url("background.jpg");
+background-size: 1400px 600px;
+    background-repeat: no-repeat;
+}
