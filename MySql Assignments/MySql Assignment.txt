@@ -1,0 +1,33 @@
+Having ,Order by,Group By :-
+=============================
+
+Group by :- 
+-------------
+Gathering information for a group of records which are grouped based on some criteria.
+
+Eg:- To find the average sales done by sales person , we are using group by on salesperson column and average the Totalsale for that person .
+
+SELECT Salesperson, AVG(TotalSale)
+ FROM SALES
+ GROUP BY Salesperson;
+ 
+ Having :- 
+-----------
+To filter records on multiple records rather than on single records, having clause is used .
+
+SELECT Salesperson, SUM(TotalSale)
+ FROM SALES
+ GROUP BY Salesperson
+ HAVING Salesperson <>'Bennett';
+ 
+ here the sales are grouped by salesperson and to filter out the records to not include sales of salesperson by name 'Bennett'.
+ 
+ 
+ Order By :-
+ --------
+ Order by is used to either order the records based on column either in asc or desc order .
+
+ SELECT * FROM SALES ORDER BY SaleDate ;
+
+Note :- by default asc order is selected .
+ 
